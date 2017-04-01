@@ -1,6 +1,14 @@
-<?php require_once('function.php'); 
-if (isset($_POST['go'])) {
- header("location: list.php");
+<?php 
+if(!empty($_FILES)){
+	move_uploaded_file($_FILES['file']['tmp_name'], 'downloads/'.$_FILES['file']['name']);
+}
+$tests = scandir('downloads');
+foreach ($tests as  $test) {
+	if ($test!=='.' && $test !=='..') {
+		
+	$listing = file_get_contents('downloads/'.$test);
+	$listing = file_put_contents('listing.txt', $listing."***", FILE_APPEND);
+	}
 }
 ?>
 

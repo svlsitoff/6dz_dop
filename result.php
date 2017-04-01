@@ -1,33 +1,25 @@
 <?php 
 require_once('func.php');
-/*echo "<pre>";
-var_dump($_POST);
-*/
-$username = $_POST['username'];
 $score = 0;
-$var = $_POST['test_var'];
-$res = $_POST['res'];
-$file_data = json_decode (file_get_contents('downloads/'.$var.".json"), true);
-if (!empty($_POST['res'])) {if ($res==$file_data['result'])
-		{
-		echo "Правильно!<br>";
-		get_result($username, $score);
-		}else {
-		echo "Неверно<br>";}
+$username =(!empty($_POST['username'])) ? $_POST['username'] : "данных нет!";
+$var = (!empty($_POST['test_var'])) ? $_POST['test_var'] : "данных нет!";
+$res = (!empty($_POST['res'])) ? $_POST['res'] : "данных нет!";
+$test =  getdata($var);
+while (isset($_POST['end']) <= 10) {
+
 }
-if (isset($_POST['back'])) {
-var_dump($_POST['back']);
-header("location: test.php");
+if ($res==$test['result']) {
+echo "правильно -";
+$score +=5;
+$matches = array('$username' => $score , );
+}else{echo "неверно!";}
+for ($i=0; $i <10 ; $i++) { 
+	echo "привет"; $i++;
 }
+	
+
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-<form method="post">
-<input type="submit" name="back" value="еще">
+<form method="post" >
+	<input type="button" name="else" value="ЕЩЕ?"><br>
+	<input type="button" name="end" value="закончить"><br>
 </form>
-</body>
-</html>
