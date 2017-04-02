@@ -1,11 +1,16 @@
 <?php 
 require_once('func.php');
-if (!empty($_GET)) {
+$list = getdata();
+if(empty($_GET)||$_GET['var']==0) 
+	{//echo"введите вариант теста в адресную строку: var=1 например :)";
+	header('HTTP/1.0 404 NOT FOUND');
+	die();}
+if ($_GET['var']>count($list)) {echo "такого варианта нет"; die();}
 $var = (int) $_GET['var'];
-$test =  getdata($var);
-}
-else{echo "введите вариант теста";}
-
+$test = $list[$var];
+$test = json_decode($test, true);
+$test = $list[$var];
+$test = json_decode($test, true);
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,8 +23,10 @@ else{echo "введите вариант теста";}
 <input  type="text" name="res"  id = "res" ><br>
 <input type="text" name="test_var" value="<?=$var?>" hidden><br>
 <label for="username" >Ваше имя</label>
-<input type="text" name="username" id="username"><br>
+<input type="text" name="username" id="username"><br><br>
 <input type="submit" value="проверить"><br>
 </form>
+<a href="tabl.php">таблица рекордов</a>
+<a href="admin.php">админка</a>
 </body>
 </html>

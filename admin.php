@@ -1,14 +1,21 @@
 <?php 
 if(!empty($_FILES)){
+	var_dump($_FILES);
 	move_uploaded_file($_FILES['file']['tmp_name'], 'downloads/'.$_FILES['file']['name']);
 }
+if(!empty($_POST['go'])){
 $tests = scandir('downloads');
 foreach ($tests as  $test) {
 	if ($test!=='.' && $test !=='..') {
-		
 	$listing = file_get_contents('downloads/'.$test);
 	$listing = file_put_contents('listing.txt', $listing."***", FILE_APPEND);
+		}
 	}
+}
+if (!empty($_POST['list'])) {
+	header('location: list.php');
+}if (!empty($_POST['users'])) {
+	header('location: users.php');
 }
 ?>
 
@@ -20,10 +27,11 @@ foreach ($tests as  $test) {
 </head>
 <body>
 <form action="admin.php" method="post" enctype="multipart/form-data">
-<input type="file" name="file"><br>
-<input type="submit" name="go" value="Отправить"><br>
+<input type="file" name="file"><br><br>
+<input type="submit" name="go" value="Отправить"><br><br>
+<input type="submit" name="list" value="К списку файлов"><br><br>
+<input type="submit" name="users" value="Пользователи">
 </form>
 <a href="test.php">тест</a>
-<a href="list.php">список</a>
 </body>
 </html>
