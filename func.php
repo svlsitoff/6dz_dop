@@ -7,14 +7,29 @@
 		
 	return $list;
 }
+function getUsers()
+{
+    $filePath = __DIR__ . '/users_data.json';
+    if (!file_exists($filePath)) {
+        return [];
+    }
+    $fileData = file_get_contents($filePath);
+    $data = json_decode($fileData, true);
+    if (!$data) {
+        return [];
+    }
+    return $data;
+}
+function getUser($login)
+{
+    $users = getUsers();
+    foreach ($users as $user) {
+        if (strcmp($user['login'], $login) === 0) {
+            return $user;
+        }
+    }
+    return null;
+}
 
 
 
-/*function get_result(){
- $user_records =  scandir('records');
- $user_records = array_flip($user_records);
- foreach ($user_records as $key => $value) {
- 	$value = (int)file_get_contents('records/'.$value);
- }
- return $user_records;
-}*/
