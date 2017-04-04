@@ -35,8 +35,8 @@ if (isset($_POST['inter'])) {
     <div id="login">
         <form action="login.php" method="post">
             <fieldset class="clearfix">
-                <p><span class="fontawesome-user"></span><input type="text" name="login" onBlur="if(this.value == '') this.value = 'Логин'" onFocus="if(this.value == 'Логин') this.value = ''" required></p> 
-                <p><span class="fontawesome-lock"></span><input type="password"  name="password" onBlur="if(this.value == '') this.value = 'Пароль'" onFocus="if(this.value == 'Пароль') this.value = ''" required></p> 
+                <p><span class="fontawesome-user"></span><input type="text" name="login" placeholder="login" onFocus="if(this.value == 'Логин') this.value = ''" required></p> 
+                <p><span class="fontawesome-lock"></span><input type="password"  name="password" onBlur="if(this.value == '') this.value = 'Пароль'" onFocus="if(this.value == 'Пароль') this.value = ''" placeholder="пароль" required></p> 
                 <p><input type="submit" name="inter" value="ВОЙТИ"></p>
             </fieldset>
         </form>

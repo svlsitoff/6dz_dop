@@ -1,7 +1,7 @@
 <?php 
 require_once('func.php');
 session_start();
- echo "Привет! ".$_SESSION['login']." введите вариант ?var=1 например" ;
+echo "Привет! ".$_SESSION['login']." введите вариант ?var=1 например<br><br>" ;
 $list = getdata();
 if(empty($_GET)||$_GET['var']==0) 
 	{//echo"введите вариант теста в адресную строку: var=1 например :)";

@@ -1,4 +1,5 @@
 <?php 
+require_once('func.php');
 if (!empty($_POST['reg'])) {
 
 		if (isset($_POST['login']) && isset($_POST['password']) && isset($_POST['name'])){
@@ -9,9 +10,12 @@ if (!empty($_POST['reg'])) {
 		$users = json_decode($file, true);
 		unset($file);
 		$users[] = array('login' =>$login ,'password'=>$password,'name'=>$name );
-
 		file_put_contents('users_data.json', json_encode($users, JSON_PRETTY_PRINT));
 		unset($users);
+		session_start();
+		$_SESSION['login'] = $login;
+        $_SESSION['password'] = $password;
+        
 		}
 }
 ?>
@@ -38,7 +42,7 @@ if (!empty($_POST['reg'])) {
           <input type="password" name="password" placeholder="Пароль" required />
           <input type="submit" name="reg" value="зарегистрироваться" />
         </form>
-        <a href="login.php"></a>
+        <a href="test.php">тест</a>
       </fieldset>
     </div>
   </div>
