@@ -1,6 +1,6 @@
 <?php 
-session_start();
-if($_SESSION['login'] !== "admin"){ header('location: login.php'); die();}
+//session_start();
+if($_COOKIE['login'] !== "admin"){ header('location: login.php'); die();}
 require_once('func.php');
 
 

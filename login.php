@@ -7,9 +7,11 @@ if (isset($_POST['inter'])) {
                 $errors[] = "неверный логин или пароль";
             }
         if (empty($errors)){
-            session_start();
-            $_SESSION['login'] = $_POST['login'];
-            header('location: test.php');
+            $login = $_POST['login'];
+            setcookie('login', $login, time()+100);
+            /*session_start();
+            $_SESSION['login'] = $login*/
+            header('location: test.php?var=1');
             }
         
     }

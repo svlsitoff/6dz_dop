@@ -1,8 +1,6 @@
 <?php
 header("Content-type: image/png");
-$string= file_get_contents('serteficate.txt');
-getimage($string);
-
+getimage(file_get_contents('serteficate.txt'));
 function getimage($string) {
 	 $img = imagecreatetruecolor(300, 260);
 	 $backcolor = imagecolorallocate($img, 255, 224, 221);
@@ -11,7 +9,7 @@ function getimage($string) {
 	 $imgbox = imagecreatefrompng('images/sert.png');
 	 imagefill($img, 0, 0, $backcolor);
 	 imagecopy($img, $imgbox, 10, 10, 0, 0, 400, 400);
-	 imagettftext($img, 16, 0, 20, 96, $fontcolor, $fontfile, $string);
+	 imagettftext($img, 16, 0, 20, 96, $fontcolor, $fontfile, file_get_contents('serteficate.txt'));
 	 imagepng($img);
 	 imagedestroy($img);
 

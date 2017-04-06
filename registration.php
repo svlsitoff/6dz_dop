@@ -12,9 +12,12 @@ if (!empty($_POST['reg'])) {
 		$users[] = array('login' =>$login ,'password'=>$password,'name'=>$name );
 		file_put_contents('users_data.json', json_encode($users, JSON_PRETTY_PRINT));
 		unset($users);
-		session_start();
-		$_SESSION['login'] = $login;
-        $_SESSION['password'] = $password;
+		//session_start();
+
+		//$_SESSION['login'] = $login;
+        //$_SESSION['password'] = $password;
+        
+        setcookie('login', $login,time()+300);
         
 		}
 }

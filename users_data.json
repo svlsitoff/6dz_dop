@@ -23,5 +23,15 @@
         "login": "artur",
         "password": "123",
         "name": "\u0410\u0440\u0442\u0443\u0440"
+    },
+    {
+        "login": "igor",
+        "password": "123",
+        "name": "\u0438\u0433\u043e\u0440\u044c"
+    },
+    {
+        "login": "admin",
+        "password": "1234",
+        "name": "admin"
     }
 ]
