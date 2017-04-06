@@ -8,5 +8,20 @@
         "login": "alex",
         "password": "1234",
         "name": "\u0410\u043b\u0435\u043a\u0441"
+    },
+    {
+        "login": "admin",
+        "password": "1234",
+        "name": "admin"
+    },
+    {
+        "login": "ivan",
+        "password": "123",
+        "name": "\u0412\u0430\u043d\u044f"
+    },
+    {
+        "login": "artur",
+        "password": "123",
+        "name": "\u0410\u0440\u0442\u0443\u0440"
     }
 ]

@@ -9,7 +9,6 @@ if (isset($_POST['inter'])) {
         if (empty($errors)){
             session_start();
             $_SESSION['login'] = $_POST['login'];
-            $_SESSION['password'] = $_POST['password'];
             header('location: test.php');
             }
         

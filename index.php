@@ -1,9 +1,11 @@
 <?php 
-require_once('func.php');
 session_start();
+if (empty($_SESSION)) {
+	header("location: login.php");
+	die;
+}
 if (!empty($_SESSION['login'])) {
-	header('location : test.php');
+	header("location: test.php");
+	die();
 }
-else {
-	header('location: login.php');
-}
+

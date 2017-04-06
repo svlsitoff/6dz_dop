@@ -1,9 +1,9 @@
 <?php 
 require_once('func.php');
-if (empty($_POST['username'])||empty($_POST['res'])) {
-	echo "Полученные данные не корректны<br>";
-	echo "<a href='test.php'>тест</a>";
-	die();
+	if ( empty($_POST['username']) || empty($_POST['res']) ) {
+		echo "Полученные данные не корректны<br>";
+		echo "<a href='test.php'>тест</a>";
+		die();
 	}else {
 		$username =nl2br($_POST['username']);
 		$var = (int)$_POST['test_var'];
@@ -14,34 +14,37 @@ if (empty($_POST['username'])||empty($_POST['res'])) {
 		/////
 		$user_names = scandir('records/');
 		$match = 0;
+		for ($i=0; $i <count($user_names) ; $i++) { 
+		 	
+		$user_names[$i] = str_replace(".txt", "", $user_names[$i]);
+		}
 			for ($i=0; $i <count($user_names) ; $i++) { 
-			 	
-			$user_names[$i] = str_replace(".txt", "", $user_names[$i]);
-			}for ($i=0; $i <count($user_names) ; $i++) { 
-				if ($user_names[$i] == $username) {$match++;}
+				if ($user_names[$i] === $username)
+				 	{
+				 		$match++;
+				 	}
 			}
 
 		////
-		if($match == 0) {
-			file_put_contents("records/$username.txt", 0);
+	if($match === 0) {
+		file_put_contents("records/$username.txt", 0);
 		}
 
-		if ($res==$test['result']) {
-			$score = (int)file_get_contents("records/$username.txt");
-			$score = $score + 5;
-			echo "правильно!<br>";
-			echo "Игрок: ".$username." набрал ". $score ." очков";
-			file_put_contents("records/$username.txt", $score);
-			
-		}else{
+	if ($res===$test['result']) {
+		$score = (int)file_get_contents("records/$username.txt");
+		$score = $score + 5;
+		echo "правильно!<br>";
+		echo "Игрок: ".$username." набрал ". $score ." очков";
+		file_put_contents("records/$username.txt", $score);
+		}
+
+	else{
 			echo "НЕверно!";
 		}
 }
 
 		
-		if (!empty($_POST['end'])) {
-		  	header("location: tabl.php");
-		}
+		
 
 ?>
 <form action="test.php" method="get" >

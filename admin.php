@@ -1,11 +1,10 @@
 <?php 
 session_start();
-if($_SESSION['login'] != "admin"){ header('location: login.php'); die();}
+if($_SESSION['login'] !== "admin"){ header('location: login.php'); die();}
 require_once('func.php');
 
 
 if(!empty($_FILES)){
-	var_dump($_FILES);
 	move_uploaded_file($_FILES['file']['tmp_name'], 'downloads/'.$_FILES['file']['name']);
 }
 if(!empty($_POST['go'])){
