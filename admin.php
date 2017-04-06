@@ -37,6 +37,6 @@ if (!empty($_POST['list'])) {
 <input type="submit" name="users" value="рекорды пользователей">
 </form>
 <a href="test.php">тест</a>
-<a href="login.php"></a>
+<a href="login.php">авторизация</a>
 </body>
 </html>

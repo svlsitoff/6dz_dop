@@ -30,5 +30,6 @@ $test = json_decode($test, true);
 </form>
 <a href="tabl.php">таблица рекордов</a>
 <a href="admin.php">админка</a>
+<a href="login.php">авторизация</a>
 </body>
 </html>

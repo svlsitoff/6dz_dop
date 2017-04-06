@@ -41,14 +41,14 @@ if (isset($_POST['inter'])) {
         </form>
         <p>Нет аккаунта? &nbsp;&nbsp;<a href="registration.php">Регистрация</a><span class="fontawesome-arrow-right"></span></p>
         <?php if(!empty($errors)) :?>
-        <ul>
+            <ul>
 
-           <?php foreach ($errors as $key => $error):?>
-           <li>
-               <?= $error ?>
-           </li> 
-           <?php endforeach; ?>
-           </ul>
+               <?php foreach ($errors as $key => $error):?>
+               <li>
+                   <?= $error ?>
+               </li> 
+               <?php endforeach; ?>
+            </ul>
         <?php endif; ?>
     </div>
 </body>
