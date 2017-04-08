@@ -1,6 +1,6 @@
 <?php 
 //session_start();
-var_dump($_COOKIE);
+
 if (empty($_COOKIE['login'])) {
 	header("location: login.php");
 	die;
