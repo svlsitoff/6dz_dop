@@ -1,6 +1,6 @@
 <?php 
-//session_start();
-if($_COOKIE['login'] !== "admin"){ header('location: login.php'); die();}
+session_start();
+if($_COOKIE['login'] !== "admin" ){ header('location: login.php'); die();}
 require_once('func.php');
 
 
@@ -34,9 +34,10 @@ if (!empty($_POST['list'])) {
 <input type="file" name="file"><br><br>
 <input type="submit" name="go" value="Отправить"><br><br>
 <input type="submit" name="list" value="К списку файлов"><br><br>
-<input type="submit" name="users" value="рекорды пользователей">
+<input type="submit" name="users" value="удаление рекордов пользователей">
 </form>
-<a href="test.php">тест</a>
-<a href="login.php">авторизация</a>
+<a href="test.php">тест</a><br>
+<a href="login.php">выход</a><br>
+<a href="tabl.php">таблица рекордов</a><br>
 </body>
 </html>

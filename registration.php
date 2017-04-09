@@ -12,13 +12,10 @@ if (!empty($_POST['reg'])) {
 		$users[] = array('login' =>$login ,'password'=>$password,'name'=>$name );
 		file_put_contents('users_data.json', json_encode($users, JSON_PRETTY_PRINT));
 		unset($users);
-		//session_start();
-
-		//$_SESSION['login'] = $login;
-        //$_SESSION['password'] = $password;
-        
+		session_start();
+		$_SESSION['login'] = $login;
         setcookie('login', $login,time()+300);
-        
+        header("location: test.php");
 		}
 }
 ?>
@@ -45,7 +42,6 @@ if (!empty($_POST['reg'])) {
           <input type="password" name="password" placeholder="Пароль" required />
           <input type="submit" name="reg" value="зарегистрироваться" />
         </form>
-        <a href="test.php">тест</a>
       </fieldset>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <?php 
-//session_start();
+session_start();
 require_once('func.php');
 
 $user_records =  scandir('records');
@@ -13,13 +13,10 @@ for ($i=0; $i <count($user_records) ; $i++) {
 		}
 		
 	}
-$max_name = array_keys( @$rec, max(@$rec) );
-$succes = "Поздравляем ".$max_name[0]."!\n Вы набрали ". max(@$rec) . " очков";
-file_put_contents('serteficate.txt', $succes);
-echo "<a href='test.php'>тест</a><br>";
-if ($_COOKIE['login']==$max_name[0]){
-echo "<a href='serteficate.php'>получить сертефикат</a>";}
-else {echo "Серификат выдается самому лучшему игроку!";}
+
+
+echo "<a href='test.php'>тест</a><br><br>";
+echo "<a href='login.php'>выход</a><br><br>";
 ?>
 
 

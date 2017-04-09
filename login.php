@@ -9,9 +9,9 @@ if (isset($_POST['inter'])) {
         if (empty($errors)){
             $login = $_POST['login'];
             setcookie('login', $login, time()+100);
-            /*session_start();
-            $_SESSION['login'] = $login*/
-            header('location: test.php?var=1');
+            session_start();
+            $_SESSION['login'] = $login;
+            header('location: test.php');
             }
         
     }

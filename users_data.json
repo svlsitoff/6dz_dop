@@ -38,5 +38,20 @@
         "login": "\u0430\u0440\u0442\u0435\u043c",
         "password": "123",
         "name": "\u0430\u0440\u0442\u0435\u043c"
+    },
+    {
+        "login": "asd",
+        "password": "asd",
+        "name": "asd"
+    },
+    {
+        "login": "qw",
+        "password": "qw",
+        "name": "qw"
+    },
+    {
+        "login": "\u0439\u0446\u0443",
+        "password": "\u0446\u0443",
+        "name": "\u0439\u0446\u0443"
     }
 ]

@@ -1,6 +1,7 @@
 <?php 
+session_start();
 require_once('func.php');
-	if ( empty($_POST['username']) || empty($_POST['res']) ) {
+	if ( empty($_POST['username']) || $_POST['res']===false ) {
 		echo "Полученные данные не корректны<br>";
 		echo "<a href='test.php'>тест</a>";
 		die();
@@ -34,7 +35,10 @@ require_once('func.php');
 		$score = (int)file_get_contents("records/$username.txt");
 		$score = $score + 5;
 		echo "правильно!<br>";
-		echo "Игрок: ".$username." набрал ". $score ." очков";
+		echo "Игрок: ".$username." набрал ". $score ." очков<br>";
+		$succes = "Поздравляем ".$username."!\n Вы набрали ".$score . " очков";
+		file_put_contents('serteficate.txt', $succes);
+
 		file_put_contents("records/$username.txt", $score);
 		}
 
@@ -53,6 +57,11 @@ require_once('func.php');
 </form>
 <form>
 <a href="tabl.php">таблица рекордов</a><br>
-<a href="test.php">тест</a>
+<?php if ($res===$test['result']): ?>
+<h3><a href='serteficate.php'>Получить сертификат</a></h3>
+<?php endif; ?>
+<?php if ($_SESSION['login']==='admin') : ?>
 <a href="admin.php">админка</a>
+<?php endif; ?>
+<a href="login.php">выход</a>
 </form>
