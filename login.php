@@ -8,7 +8,7 @@ if (isset($_POST['inter'])) {
             }
         if (empty($errors)){
             $login = $_POST['login'];
-            setcookie('login', $login, time()+100);
+            setcookie('login', $login, time()+200);
             session_start();
             $_SESSION['login'] = $login;
             header('location: test.php');

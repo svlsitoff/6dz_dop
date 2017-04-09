@@ -14,9 +14,12 @@ for ($i=0; $i <count($user_records) ; $i++) {
 		
 	}
 
-
+if ($_SESSION['login']==='admin') {
+	echo "<a href='admin.php'>админка</a><br><br>";
+}
 echo "<a href='test.php'>тест</a><br><br>";
 echo "<a href='login.php'>выход</a><br><br>";
+
 ?>
 
 
